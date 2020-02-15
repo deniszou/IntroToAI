@@ -1,18 +1,13 @@
-import numpy
 import os
+import numpy
 
-
-def createMaze(dim, prob):
-    nums = numpy.random.choice(['F', 'E'], size=(dim, dim), p=[prob, 1 - prob])
-    nums[0, 0] = 'S'
-    nums[dim - 1, dim - 1] = 'G'
 
 # depth first uses stack
-
 def dfs(maze, currX, currY, visited, paths, stack):
     visited.append(currX, currY)
-    if maze[currX, currY] == 'G'
+    if maze[currX, currY] == 'G':
         return visited
+
 
 def checkNeighbors(maze, x, y, visited, stack):
     if edgeCheck(maze, x, y) == "top":
@@ -30,3 +25,20 @@ def edgeCheck(maze, x, y):
         return "left"
     if y == maze.shape[1]:
         return "right"
+
+
+#-----------A Star-----------
+def getEuclid(self, dim, x, y):
+    a = (dim - 1 - x) ** 2
+    b = (dim - 1 - y) ** 2
+    return numpy.sqrt(a + b)
+
+
+def getManhattan(self, dim, x, y):
+    a = abs(dim - 1 - x)
+    b = abs(dim - 1 - y)
+    return a + b
+
+
+def aStar(maze, self):
+    dim = maze.dim

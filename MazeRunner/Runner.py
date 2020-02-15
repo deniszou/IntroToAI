@@ -1,0 +1,11 @@
+from Maze import Maze
+import Environments
+
+if __name__ == '__main__':
+    # ---------------Create & print maze---------------
+    dimension = int(input("What is the demnsion of the maze?\n"))
+    percent = float(input("What is the percentage chance a space is filled?\n"))
+    maze = Maze(dimension, percent)
+    maze.printMaze()
+
+    #---------------Print out solutions here---------------
