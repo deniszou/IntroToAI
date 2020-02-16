@@ -8,6 +8,7 @@ def createMaze(dim, prob):
     nums[dim - 1, dim - 1] = 'G'
     return nums
 
+
 def dfs(maze):
     visited = {}
     stack = [[(0, 0)]]
@@ -20,6 +21,7 @@ def dfs(maze):
             return path
         else:
             getNeighbors(maze, node[0], node[1], visited, stack, path)
+    return "No path found"
 
 
 def isValid(maze, x, y):
@@ -31,19 +33,19 @@ def isValid(maze, x, y):
 
 
 def getNeighbors(maze, x, y, visited, stack, pathO):
-    if isValid(maze, x - 1, y) and visited[x - 1, y].get() != 1:
+    if isValid(maze, x - 1, y) and visited.get((x - 1, y)) is None:
         path1 = pathO.copy()
         path1.append((x - 1, y))
         stack.append(path1)
-    if isValid(maze, x, y - 1) and visited[x, y - 1].get() != 1:
+    if isValid(maze, x, y - 1) and visited.get((x, y - 1)) is None:
         path2 = pathO.copy()
         path2.append((x, y - 1))
         stack.append(path2)
-    if isValid(maze, x + 1, y) and visited[x + 1, y].get() != 1:
+    if isValid(maze, x + 1, y) and visited.get((x + 1, y)) is None:
         path3 = pathO.copy()
         path3.append((x + 1, y))
         stack.append(path3)
-    if isValid(maze, x, y + 1) and visited[x, y + 1].get() != 1:
+    if isValid(maze, x, y + 1) and visited.get((x, y + 1)) is None:
         path4 = pathO.copy()
         path4.append((x, y + 1))
         stack.append(path4)
@@ -57,8 +59,7 @@ def printMaze(self):
             print(self[x][y], end=" ")
 
 
-maze = createMaze(10, 0.3)
+maze = createMaze(30, 0.9)
 print(dfs(maze))
 printMaze(maze)
 print(dfs(maze))
-
