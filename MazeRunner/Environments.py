@@ -104,6 +104,50 @@ def addValidChildren(maze, fringe, parent, prev, visited):
         fringe.append(child)
         visited.append(child)
         prev[child] = parent         
+# -----------Bidirectional BFS-----------
+def bidirectional_bfs(maze):
+    root_g = (len(maze)-1, len(maze)-1)
+    root_s = (0,0)
+
+    prev_s = {}
+    prev_g = {}
+    fringe_s = [root_s]
+    fringe_g = [root_g]
+
+    visited_s = [root_s]
+    visited_g = [root_g]
+    prev_s[root_s] = None
+    prev_g[root_g] = None
+
+    while len(fringe_s) != 0 and len(fringe_g) != 0:
+        curr_state_s = fringe_s.pop(0)
+        curr_state_g = fringe_g.pop(0)
+        if curr_state_s == curr_state_g or curr_state_s in fringe_g or curr_state_g in fringe_s:
+            # if curr_state_s is in both fringes there is an intersection/complete path
+            if(curr_state_s in fringe_g):
+                path = [curr_state_s]
+                # set initial states
+                state_s = curr_state_s
+                state_g = curr_state_s
+            # if curr_state_g is in both fringes there is an intersection/complete path
+            elif(curr_state_g in fringe_s):
+                path = [curr_state_g]
+                state_s = curr_state_g
+                state_g = curr_state_g
+            # reverse to find path for first BFS tree
+            while(state_s != root_s):
+                state_s = prev_s[state_s]
+                path.insert(0, state_s)
+            
+            # reverse to find the connected path for second BFS tree
+            while(state_g != root_g):
+                state_g = prev_g[state_g]
+                path.append(state_g)
+
+            return path
+        addValidChildren(maze, fringe_s, curr_state_s, prev_s, visited_s)
+        addValidChildren(maze, fringe_g, curr_state_g, prev_g, visited_g)
+    return "No solution"
 
 # -----------A Star-----------
 def getEuclid(dim, x, y):
@@ -253,7 +297,7 @@ def printMaze(self):
             print(self[x][y], end=" ")
 
 
-maze = createMaze(30, 0.2)
+maze = createMaze(5, 0.3)
 #printMaze(maze)
 #print("\n")
 #print(aStarEuclid(maze))
@@ -261,4 +305,4 @@ maze = createMaze(30, 0.2)
 
 printMaze(maze)
 print("\n")
-print(bfs(maze))
+print(bidirectional_bfs(maze))
