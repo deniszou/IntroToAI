@@ -122,15 +122,15 @@ def bidirectional_bfs(maze):
     while len(fringe_s) != 0 and len(fringe_g) != 0:
         curr_state_s = fringe_s.pop(0)
         curr_state_g = fringe_g.pop(0)
-        if curr_state_s == curr_state_g or curr_state_s in fringe_g or curr_state_g in fringe_s:
+        if curr_state_s == curr_state_g or curr_state_s in prev_g or curr_state_g in prev_s:
             # if curr_state_s is in both fringes there is an intersection/complete path
-            if(curr_state_s in fringe_g):
+            if(curr_state_s in prev_g):
                 path = [curr_state_s]
                 # set initial states
                 state_s = curr_state_s
                 state_g = curr_state_s
             # if curr_state_g is in both fringes there is an intersection/complete path
-            elif(curr_state_g in fringe_s):
+            elif(curr_state_g in prev_s):
                 path = [curr_state_g]
                 state_s = curr_state_g
                 state_g = curr_state_g
@@ -304,5 +304,13 @@ maze = createMaze(5, 0.3)
 #print(aStarManhattan(maze))
 
 printMaze(maze)
-print("\n")
+print("\nDFS:")
+print(dfs(maze))
+print("\nBFS:")
+print(bfs(maze))
+print("\nBidirectional BFS:")
 print(bidirectional_bfs(maze))
+print("\nA* Euclidean")
+print(aStarEuclid(maze))
+print("\nA* Manhattan")
+print(aStarManhattan(maze))
