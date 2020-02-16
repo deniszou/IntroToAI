@@ -72,7 +72,7 @@ def getManhattan(dim, x, y):
     return a + b
 
 
-def aStar(maze):
+def aStarEuclid(maze):
     dim = maze.size
     visited = {}
 
@@ -130,6 +130,64 @@ def getNeighborsEuclid(maze, x, y, visited, sortedList, heuristicList, pathO, di
     return sortedList, heuristicList
 
 
+def aStarManhattan(maze):
+    dim = maze.size
+    visited = {}
+
+    # (x,x,x) represents (x coord, y coord, heuristic)
+    # sortedList is sorted from highest to lowest heuristic
+    sortedList = [[(0, 0)]]
+    heuristicList = [[(getManhattan(dim, 0, 0))]]
+    while sortedList:
+        path = sortedList.pop()
+        pathHeuristic = heuristicList.pop()
+        node = path[-1]
+        visited[node] = 1
+        if maze[node] == 'G':
+            return path
+        else:
+            getNeighborsManhattan(maze, node[0], node[1], visited, sortedList, heuristicList, path, dim)
+
+            # Sort sortedList and heuristicList by heuristic (Insertion sort)
+            for i in range(len(heuristicList)):
+                cursor = heuristicList[i]
+                pos = i
+
+                while pos > 0 and heuristicList[pos - 1] < cursor:
+                    # Swap the number down the list
+                    heuristicList[pos] = heuristicList[pos - 1]
+                    sortedList[pos] = sortedList[pos - 1]
+                    pos = pos - 1
+                # Break and do the final swap
+                heuristicList[pos] = cursor
+
+    return "No path found"
+
+
+def getNeighborsManhattan(maze, x, y, visited, sortedList, heuristicList, pathO, dim):
+    if isValid(maze, x - 1, y) and visited.get((x - 1, y)) is None:
+        path1 = pathO.copy()
+        path1.append((x - 1, y))
+        sortedList.append(path1)
+        heuristicList.append(getManhattan(dim, x - 1, y))
+    if isValid(maze, x, y - 1) and visited.get((x, y - 1)) is None:
+        path2 = pathO.copy()
+        path2.append((x, y - 1))
+        sortedList.append(path2)
+        heuristicList.append(getManhattan(dim, x, y - 1))
+    if isValid(maze, x + 1, y) and visited.get((x + 1, y)) is None:
+        path3 = pathO.copy()
+        path3.append((x + 1, y))
+        sortedList.append(path3)
+        heuristicList.append(getManhattan(dim, x + 1, y))
+    if isValid(maze, x, y + 1) and visited.get((x, y + 1)) is None:
+        path4 = pathO.copy()
+        path4.append((x, y + 1))
+        sortedList.append(path4)
+        heuristicList.append(getManhattan(dim, x, y + 1))
+    return sortedList, heuristicList
+
+
 def sortByHeuristic(sortedList):
     l = len(sortedList)
     for i in range(0, l):
@@ -151,4 +209,6 @@ def printMaze(self):
 
 maze = createMaze(5, 0.2)
 printMaze(maze)
-print(aStar(maze))
+print("\n")
+print(aStarEuclid(maze))
+print(aStarManhattan(maze))
