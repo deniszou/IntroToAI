@@ -59,6 +59,53 @@ def getNeighbors(maze, x, y, visited, stack, pathO):
 # printMaze(maze)
 # print(dfs(maze))
 
+# -----------Breadth First Search (BFS)-----------
+def bfs(maze, start=(0,0)):
+    goal=(len(maze)-1, len(maze)-1)
+    prev = {}
+    fringe = [start]
+    visited_set = [start]
+    prev[start] = None
+    
+    while len(fringe) != 0:
+        curr_state = fringe.pop(0)
+        if curr_state == goal:
+            path = [goal]
+            state = goal
+            while state != (0,0):
+                state = prev[state]
+                path.insert(0, state)
+            return path
+        addValidChildren(maze, fringe, curr_state, prev, visited_set)
+    return "No Solution"
+
+def addValidChildren(maze, fringe, parent, prev, visited):
+    
+    # left child
+    if parent[1] - 1 >= 0 and maze[parent[0]][parent[1]-1] != 'F' and (parent[0], parent[1]-1) not in visited:
+        child = (parent[0], parent[1]-1)
+        fringe.append(child)
+        visited.append(child)
+        prev[child] = parent
+    # top child
+    if parent[0] - 1 >= 0 and maze[parent[0]-1][parent[1]] != 'F' and (parent[0]-1, parent[1]) not in visited:
+        child = (parent[0]-1, parent[1])
+        fringe.append(child)
+        visited.append(child)
+        prev[child] = parent
+    # right child
+    if parent[1] + 1 < len(maze) and maze[parent[0]][parent[1]+1] != 'F' and (parent[0], parent[1]+1) not in visited:
+        child = (parent[0], parent[1]+1)
+        fringe.append(child)
+        visited.append(child)
+        prev[child] = parent
+    # bottom child
+    if parent[0] + 1 < len(maze) and maze[parent[0]+1][parent[1]] != 'F' and (parent[0]+1,parent[1]) not in visited:
+        child = (parent[0]+1,parent[1])
+        fringe.append(child)
+        visited.append(child)
+        prev[child] = parent         
+
 # -----------A Star-----------
 def getEuclid(dim, x, y):
     a = (dim - 1 - x) ** 2
@@ -207,8 +254,12 @@ def printMaze(self):
             print(self[x][y], end=" ")
 
 
-maze = createMaze(5, 0.2)
+maze = createMaze(30, 0.2)
+#printMaze(maze)
+#print("\n")
+#print(aStarEuclid(maze))
+#print(aStarManhattan(maze))
+
 printMaze(maze)
 print("\n")
-print(aStarEuclid(maze))
-print(aStarManhattan(maze))
+print(bfs(maze))
