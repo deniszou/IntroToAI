@@ -15,6 +15,7 @@ def dfs(maze):
     stack = [[(0, 0)]]
 
     while stack:
+        print("STACK", stack)
         path = stack.pop()
         node = path[-1]
         visited[node] = 1
@@ -166,8 +167,7 @@ def aStarEuclid(maze):
     dim = maze.size
     visited = {}
 
-    # (x,x,x) represents (x coord, y coord, heuristic)
-    # sortedList is sorted from highest to lowest heuristic
+    # heuristicList is sorted from highest to lowest heuristic
     sortedList = [[(0, 0)]]
     heuristicList = [[(getEuclid(dim, 0, 0))]]
     while sortedList:
@@ -303,6 +303,8 @@ maze = createMaze(5, 0.3)
 #print(aStarEuclid(maze))
 #print(aStarManhattan(maze))
 
-printMaze(maze)
-print("\n")
-print(bidirectional_bfs(maze))
+# printMaze(maze)
+# print("\n")
+# print(bidirectional_bfs(maze))
+# print("\n")
+# print(dfs(maze))
