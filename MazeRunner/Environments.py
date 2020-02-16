@@ -4,7 +4,6 @@ import numpy
 
 # -----------DFS-----------
 def createMaze(dim, prob):
-    size = dim
     nums = numpy.random.choice(['F', 'E'], size=(dim, dim), p=[prob, 1 - prob])
     nums[0, 0] = 'S'
     nums[dim - 1, dim - 1] = 'G'
