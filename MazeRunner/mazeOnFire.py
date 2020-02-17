@@ -12,9 +12,7 @@ def createMaze(maze, x, y):
 
 def setMazeOnFire(maze, flammabilityRate):
     maze.flammabilityRate = flammabilityRate
-    print("Flamrate: ", flammabilityRate)
     while True:
-        print("FIRE")
         fireSquare1 = numpy.random.choice(maze.dim)
         fireSquare2 = numpy.random.choice(maze.dim)
         if (maze.nums[fireSquare1][fireSquare2]) == 'E':
@@ -117,16 +115,20 @@ def findClosestFire3(coords):
         (curx, cury) = maze.onFireList[x]
         fireEuclidList.append(getFireEuclid(coords, maze.onFireList[x]))
         # Spread the fire by one in each direction if possible
-        if isValid(maze, curx - 1, cury) and maze.nums[curx - 1, cury] != 'F' and maze.nums[curx - 1, cury] != 'X' and maze.nums[curx - 1, cury] != 'G':
+        if isValid(maze, curx - 1, cury) and maze.nums[curx - 1, cury] != 'F' and maze.nums[curx - 1, cury] != 'X' and \
+                maze.nums[curx - 1, cury] != 'G':
             fireEuclidList.append(getFireEuclid(coords, (curx - 1, cury)))
 
-        if isValid(maze, curx, cury - 1) and maze.nums[curx, cury - 1] != 'F' and maze.nums[curx, cury - 1] != 'X' and maze.nums[curx, cury - 1] != 'G':
+        if isValid(maze, curx, cury - 1) and maze.nums[curx, cury - 1] != 'F' and maze.nums[curx, cury - 1] != 'X' and \
+                maze.nums[curx, cury - 1] != 'G':
             fireEuclidList.append(getFireEuclid(coords, (curx, cury - 1)))
 
-        if isValid(maze, curx + 1, cury) and maze.nums[curx + 1, cury] != 'F' and maze.nums[curx + 1, cury] != 'X' and maze.nums[curx + 1, cury] != 'G':
+        if isValid(maze, curx + 1, cury) and maze.nums[curx + 1, cury] != 'F' and maze.nums[curx + 1, cury] != 'X' and \
+                maze.nums[curx + 1, cury] != 'G':
             fireEuclidList.append(getFireEuclid(coords, (curx + 1, cury)))
 
-        if isValid(maze, curx, cury + 1) and maze.nums[curx, cury + 1] != 'F' and maze.nums[curx, cury + 1] != 'X' and maze.nums[curx, cury + 1] != 'G':
+        if isValid(maze, curx, cury + 1) and maze.nums[curx, cury + 1] != 'F' and maze.nums[curx, cury + 1] != 'X' and \
+                maze.nums[curx, cury + 1] != 'G':
             fireEuclidList.append(getFireEuclid(coords, (curx, cury + 1)))
 
     # Sort the fireEuclidList to find smallest distance
@@ -137,8 +139,8 @@ def findClosestFire3(coords):
 
 
 # ---------------------------------Strategy 1---------------------------------
-def aStarEuclidStrategy1(maze):
-    setMazeOnFire(maze, 0.1)
+def aStarEuclidStrategy1(maze, flammability):
+    setMazeOnFire(maze, flammability)
     printMaze(maze)
     dim = maze.dim
     visited = {}
@@ -206,17 +208,20 @@ def getNeighborsEuclid(maze, x, y, visited, sortedList, heuristicList, pathO, di
 
 
 # ---------------------------------Strategy 2---------------------------------
-def aStarEuclidStrategy2(maze):
-    setMazeOnFire(maze, 0.1)
+def aStarEuclidStrategy2(maze, flammability):
+    setMazeOnFire(maze, flammability)
     printMaze(maze)
     dim = maze.dim
     # heuristicList is sorted from highest to lowest heuristic
     path = [(0, 0, getEuclid(dim, 0, 0))]
+    visited = []
+    i = 0
     while True:
+        i = i + 1
         printMaze(maze)
         curCoords = path[len(path) - 1]
         (curx, cury, curheuristic) = curCoords
-        print("curCoords: ", curCoords)
+        # print("curCoords: ", curCoords)
 
         curDistanceToFire = findClosestFire(curCoords)
         poss1CF = 0
@@ -227,6 +232,96 @@ def aStarEuclidStrategy2(maze):
         poss2h = 0
         poss3h = 0
         poss4h = 0
+        poss1x = 0
+        poss1y = 0
+        poss2x = 0
+        poss2y = 0
+        poss3x = 0
+        poss3y = 0
+        poss4x = 0
+        poss4y = 0
+
+        if i > 3 and visited[-1] == visited[len(visited)-3]:
+            (a, b) = visited[-1]
+            (c, d) = visited[-2]
+            if a == c:
+                if isValid(maze, curx - 1, cury) and maze.nums[curx - 1, cury] != 'F' and maze.nums[
+                    curx - 1, cury] != 'X':
+                    poss1 = (curx - 1, cury, getEuclid(dim, curx - 1, cury))
+                    poss1CF = findClosestFire(poss1)
+                    (poss1x, poss1y, poss1h) = poss1
+                if isValid(maze, curx + 1, cury) and maze.nums[curx + 1, cury] != 'F' and maze.nums[
+                    curx + 1, cury] != 'X':
+                    poss3 = (curx + 1, cury, getEuclid(dim, curx + 1, cury))
+                    poss3CF = findClosestFire(poss3)
+                    (poss3x, poss3y, poss3h) = poss3
+                if poss1CF == 0 and poss3CF == 0:
+                    print("No possible moves")
+                    print("PATH: ", path)
+                    return "Dead"
+                elif poss1CF != 0 or poss3CF != 0:
+                    distanceToGoalDifferential1 = curheuristic - poss1h  # If this is positive, distance to goal decreased
+                    distanceToGoalDifferential3 = curheuristic - poss3h
+                    distanceToFireDifferential1 = int(
+                        poss1CF) - curDistanceToFire  # If this is positive, distance to fire increased
+                    distanceToFireDifferential3 = poss3CF - curDistanceToFire
+                    if poss1CF == 0:
+                        path.append(poss3)
+                        visited.append((poss3x, poss3y))
+                        continue
+                    elif poss3CF == 0:
+                        path.append(poss1)
+                        visited.append((poss1x, poss1y))
+                        continue
+
+                    # Based on the sum of differentials, append either poss3 or poss4
+                    elif distanceToFireDifferential1 + distanceToGoalDifferential1 > distanceToFireDifferential3 + distanceToGoalDifferential3:
+                        path.append(poss1)
+                        visited.append((poss1x, poss1y))
+                        continue
+                    else:
+                        path.append(poss3)
+                        visited.append((poss3x, poss3y))
+                        continue
+            elif b == d:
+                if isValid(maze, curx, cury - 1) and maze.nums[curx, cury - 1] != 'F' and maze.nums[
+                    curx, cury - 1] != 'X':
+                    poss2 = (curx, cury - 1, getEuclid(dim, curx, cury - 1))
+                    poss2CF = findClosestFire(poss2)
+                    (poss2x, poss2y, poss2h) = poss2
+                if isValid(maze, curx, cury + 1) and maze.nums[curx, cury + 1] != 'F' and maze.nums[
+                    curx, cury + 1] != 'X':
+                    poss4 = (curx, cury + 1, getEuclid(dim, curx, cury + 1))
+                    poss4CF = findClosestFire(poss4)
+                    (poss4x, poss4y, poss4h) = poss4
+                if poss2CF == 0 and poss4CF == 0:
+                    print("No possible moves")
+                    print("PATH: ", path)
+                    return "Dead"
+                elif poss2CF != 0 or poss4CF != 0:
+                    distanceToGoalDifferential2 = curheuristic - poss4h  # If this is positive, distance to goal decreased
+                    distanceToGoalDifferential4 = curheuristic - poss4h
+                    distanceToFireDifferential2 = int(
+                        poss2CF) - curDistanceToFire  # If this is positive, distance to fire increased
+                    distanceToFireDifferential4 = poss4CF - curDistanceToFire
+                    if poss2CF == 0:
+                        path.append(poss4)
+                        visited.append((poss4x, poss4y))
+                        continue
+                    elif poss4CF == 0:
+                        path.append(poss2)
+                        visited.append((poss2x, poss2y))
+                        continue
+
+                    # Based on the sum of differentials, append either poss3 or poss4
+                    elif distanceToFireDifferential2 + distanceToGoalDifferential2 > distanceToFireDifferential4 + distanceToGoalDifferential4:
+                        path.append(poss2)
+                        visited.append((poss2x, poss2y))
+                        continue
+                    else:
+                        path.append(poss4)
+                        visited.append((poss4x, poss4y))
+                        continue
 
         if path[len(path) - 1] == 'X':
             print("You got burned")
@@ -276,14 +371,22 @@ def aStarEuclidStrategy2(maze):
                 distanceToFireDifferential4 = poss4CF - curDistanceToFire
                 if poss3CF == 0:
                     path.append(poss4)
+                    visited.append((poss4x, poss4y))
+                    continue
                 elif poss4CF == 0:
                     path.append(poss3)
+                    visited.append((poss3x, poss3y))
+                    continue
 
                 # Based on the sum of differentials, append either poss3 or poss4
                 elif distanceToFireDifferential3 + distanceToGoalDifferential3 > distanceToFireDifferential4 + distanceToGoalDifferential4:
                     path.append(poss3)
+                    visited.append((poss3x, poss3y))
+                    continue
                 else:
                     path.append(poss4)
+                    visited.append((poss4x, poss4y))
+                    continue
 
             # Not possible so have to go left or right
             elif poss1CF != 0 or poss2CF != 0:
@@ -294,23 +397,32 @@ def aStarEuclidStrategy2(maze):
                 distanceToFireDifferential2 = poss2CF - curDistanceToFire
                 if poss1CF == 0:
                     path.append(poss2)
-                elif poss2CF == 0:
+                    visited.append((poss2x, poss2y))
+                    continue
+                elif poss3CF == 0:
                     path.append(poss1)
+                    visited.append((poss1x, poss1y))
+                    continue
 
                 # Based on the sum of differentials, append either poss3 or poss4
                 elif distanceToFireDifferential1 + distanceToGoalDifferential1 > distanceToFireDifferential2 + distanceToGoalDifferential2:
                     path.append(poss1)
+                    visited.append((poss1x, poss1y))
+                    continue
                 else:
                     path.append(poss2)
+                    visited.append((poss2x, poss3y))
+                    continue
 
         spreadFire(maze)
+
 
     return "No path found"
 
 
 # ---------------------------------Strategy 3---------------------------------
-def aStarEuclidStrategy3(maze):
-    setMazeOnFire(maze, 0.1)
+def aStarEuclidStrategy3(maze, flammability):
+    setMazeOnFire(maze, flammability)
     printMaze(maze)
     dim = maze.dim
     # heuristicList is sorted from highest to lowest heuristic
@@ -419,7 +531,7 @@ def printMaze(maze):
 
 
 # ------------------------Testing------------------------
-maze = Maze.Maze(5, 0.2)
-# aStarEuclidStrategy1(maze)
-# aStarEuclidStrategy2(maze)
-aStarEuclidStrategy3(maze)
+maze = Maze.Maze(5, 0.5)
+aStarEuclidStrategy1(maze, 0.1)
+aStarEuclidStrategy2(maze, 0.1)
+aStarEuclidStrategy3(maze, 0.1)
