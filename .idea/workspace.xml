@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d559a04-e89e-4298-8af8-afe413c60404" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/rSettings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,14 +46,34 @@
       <option name="presentableId" value="Default" />
       <updated>1581721455109</updated>
     </task>
+    <task id="LOCAL-00001" summary="harder mazes added and mazes.py attributes added">
+      <created>1581914912282</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1581914912282</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="harder mazes added and mazes.py attributes added" />
+    <option name="LAST_COMMIT_MESSAGE" value="harder mazes added and mazes.py attributes added" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="297" y="0" key="CommitChangelistDialog2" timestamp="1581914910997">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="297" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1581914910997" />
     <state x="493" y="171" key="FileChooserDialogImpl" timestamp="1581899598991">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="493" y="171" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1581899598991" />
     <state x="739" y="262" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1581721476528" />
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1581915652873">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1581915652873" />
     <state x="339" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1581899573014">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -63,9 +82,9 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="451" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1581894084050" />
-    <state x="387" y="132" key="git4idea.merge.GitPullDialog" timestamp="1581914506507">
+    <state x="387" y="132" key="git4idea.merge.GitPullDialog" timestamp="1581915631260">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="387" y="132" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1581914506507" />
+    <state x="387" y="132" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1581915631260" />
   </component>
 </project>
