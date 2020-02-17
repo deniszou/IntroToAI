@@ -123,6 +123,8 @@ def bidirectional_bfs(maze):
     while len(fringe_s) != 0 and len(fringe_g) != 0:
         curr_state_s = fringe_s.pop(0)
         curr_state_g = fringe_g.pop(0)
+        # print("Fringe:_s: ", fringe_s)
+        # print("Fringe_g: ", fringe_g)
         if curr_state_s == curr_state_g or curr_state_s in prev_g or curr_state_g in prev_s:
             # if curr_state_s is in both fringes there is an intersection/complete path
             if(curr_state_s in prev_g):
@@ -173,6 +175,7 @@ def aStarEuclid(maze):
     while sortedList:
         path = sortedList.pop()
         pathHeuristic = heuristicList.pop()
+        # print("Sorted List: ", sortedList)
         node = path[-1]
         visited[node] = 1
         if maze[node] == 'G':
@@ -231,6 +234,7 @@ def aStarManhattan(maze):
     while sortedList:
         path = sortedList.pop()
         pathHeuristic = heuristicList.pop()
+        # print("Sorted List: ", sortedList)
         node = path[-1]
         visited[node] = 1
         if maze[node] == 'G':
@@ -297,15 +301,20 @@ def printMaze(self):
             print(self[x][y], end="     ")
 
 
-maze = createMaze(10, 0.30)
+maze = createMaze(20, 0.2)
 printMaze(maze)
 print("\nDFS: ")
 print(dfs(maze))
+print("Length: ", len(dfs(maze)))
 print("\nBFS: ")
 print(bfs(maze))
+print("Length: ", len(bfs(maze)))
 print("\nA* Euclidean: ")
 print(aStarEuclid(maze))
+print("Length: ", len(aStarEuclid(maze)))
 print("\nA* Manhattan: ")
 print(aStarManhattan(maze))
+print("Length: ", len(aStarManhattan(maze)))
 print("\nBidirectional: ")
 print(bidirectional_bfs(maze))
+print("Length: ", len(bidirectional_bfs(maze)))
