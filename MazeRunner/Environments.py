@@ -61,26 +61,37 @@ def getNeighbors(maze, x, y, visited, stack, pathO):
 
 # -----------Breadth First Search (BFS)-----------
 def bfs(maze, start=(0,0)):
+    # goal is bottom most right most square
     goal=(len(maze)-1, len(maze)-1)
+    # keeps track of discovered nodes and their parents
     prev = {}
+    # fringe data structure is a queue (first in first out)
     fringe = [start]
+    # keeps track of visited nodes so that we don't infinite loop
     visited_set = [start]
+    # root node has no parent
     prev[start] = None
     
+    # while we have nodes still to discover
     while len(fringe) != 0:
+        # get the node from the front of the queue
         curr_state = fringe.pop(0)
+        # CHECK FOR GOAL STATE; goal state is (len(maze)-1, len(maze)-1) 
         if curr_state == goal:
+            # array to store the final path (SOLUTION)
             path = [goal]
             state = goal
+            # traverse backwards in prev to find the parents and add to the solution
             while state != (0,0):
                 state = prev[state]
                 path.insert(0, state)
             return path
+        # add any valid children (not discovered yet and isn't out of bounds or isn't a wall)
         addValidChildren(maze, fringe, curr_state, prev, visited_set)
     return "No Solution"
 
 def addValidChildren(maze, fringe, parent, prev, visited):
-    
+    # for each children, check that the children isn't out of bounds and isn't visited and isn't a wall
     # left child
     if parent[1] - 1 >= 0 and maze[parent[0]][parent[1]-1] != 'F' and (parent[0], parent[1]-1) not in visited:
         child = (parent[0], parent[1]-1)
@@ -107,22 +118,31 @@ def addValidChildren(maze, fringe, parent, prev, visited):
         prev[child] = parent         
 # -----------Bidirectional BFS-----------
 def bidirectional_bfs(maze):
+    # roots of each BFS tree
     root_g = (len(maze)-1, len(maze)-1)
     root_s = (0,0)
 
+    # two dictionaries to keep track of discovered nodes of each tree and their parents
     prev_s = {}
     prev_g = {}
+    
+    # two queues for each bfs tree
     fringe_s = [root_s]
     fringe_g = [root_g]
 
+    # keep track of visited nodes for each tree
     visited_s = [root_s]
     visited_g = [root_g]
+
+    # no parents for root nodes
     prev_s[root_s] = None
     prev_g[root_g] = None
 
     while len(fringe_s) != 0 and len(fringe_g) != 0:
         curr_state_s = fringe_s.pop(0)
         curr_state_g = fringe_g.pop(0)
+        
+        # CHECK FOR GOAL STATE (A MIDDLE GROUND NODE THAT HAS ALREADY BEEN DISCOVERED IN THE OTHER TREE OR IF BOTH CURRENT NODES ARE THE SAME)
         if curr_state_s == curr_state_g or curr_state_s in prev_g or curr_state_g in prev_s:
             # if curr_state_s is in both fringes there is an intersection/complete path
             if(curr_state_s in prev_g):
