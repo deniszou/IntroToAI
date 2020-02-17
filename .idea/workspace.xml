@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d559a04-e89e-4298-8af8-afe413c60404" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/MazeRunner/Environments.py" beforeDir="false" afterPath="$PROJECT_DIR$/MazeRunner/Environments.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/rSettings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +21,20 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Assignment1" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -35,9 +50,22 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="739" y="262" key="FileChooserDialogImpl" timestamp="1581721476528">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="493" y="171" key="FileChooserDialogImpl" timestamp="1581899598991">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="493" y="171" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1581899598991" />
     <state x="739" y="262" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1581721476528" />
+    <state x="339" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1581899573014">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="339" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1581899573014" />
+    <state x="451" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581894084050">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="451" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1581894084050" />
+    <state x="387" y="132" key="git4idea.merge.GitPullDialog" timestamp="1581914506507">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="387" y="132" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1581914506507" />
   </component>
 </project>

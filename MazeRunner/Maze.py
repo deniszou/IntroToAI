@@ -13,6 +13,8 @@ class Maze():
         self.nums = numpy.random.choice(['F', 'E'], size=(dim, dim), p=[prob, 1 - prob])
         self.nums[0, 0] = 'S'
         self.nums[dim - 1, dim - 1] = 'G'
+        self.fringeSize = 0
+        self.maxFringe = 0
 
     def printMaze(self):
         for x in range(self.dim):
