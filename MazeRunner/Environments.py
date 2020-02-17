@@ -297,7 +297,7 @@ def printMaze(self):
             print(self[x][y], end="     ")
 
 
-maze = createMaze(10, 0.1)
+maze = createMaze(10, 0.30)
 printMaze(maze)
 print("\nDFS: ")
 print(dfs(maze))
