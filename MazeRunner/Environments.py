@@ -15,7 +15,7 @@ def dfs(maze):
     stack = [[(0, 0)]]
 
     while stack:
-        print("STACK", stack)
+        # print("STACK", stack)
         path = stack.pop()
         node = path[-1]
         visited[node] = 1
@@ -294,17 +294,18 @@ def printMaze(self):
     for x in range(self.shape[0]):
         print("\n")
         for y in range(self.shape[1]):
-            print(self[x][y], end=" ")
+            print(self[x][y], end="     ")
 
 
-maze = createMaze(5, 0.3)
-#printMaze(maze)
-#print("\n")
-#print(aStarEuclid(maze))
-#print(aStarManhattan(maze))
-
-# printMaze(maze)
-# print("\n")
-# print(bidirectional_bfs(maze))
-# print("\n")
-# print(dfs(maze))
+maze = createMaze(10, 0.1)
+printMaze(maze)
+print("\nDFS: ")
+print(dfs(maze))
+print("\nBFS: ")
+print(bfs(maze))
+print("\nA* Euclidean: ")
+print(aStarEuclid(maze))
+print("\nA* Manhattan: ")
+print(aStarManhattan(maze))
+print("\nBidirectional: ")
+print(bidirectional_bfs(maze))
