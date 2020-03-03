@@ -531,7 +531,7 @@ def printMaze(maze):
 
 
 # ------------------------Testing------------------------
-maze = Maze.Maze(5, 0.5)
+maze = Maze.Maze(5, 0.2)
 aStarEuclidStrategy1(maze, 0.1)
 aStarEuclidStrategy2(maze, 0.1)
 aStarEuclidStrategy3(maze, 0.1)
