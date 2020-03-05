@@ -20,32 +20,18 @@ class Board:
                     continue
                 else:
                     board[(x, y)] = checkMines(board, x, y)
-    def createBoard(mines, dim):
-        #create an array with number of mines
-        board = numpy.zeros((dim * dim))
-        mineCount = 0
-        top left,
-        top
-        top right,
-        right
-        bottom right
-        bottom
-        bottom left
-        left
-        if (x - 1) >= 0:
-
-        if (y - 1) >= 0:
-
-        if (x + 1) <= dim - 1:
-
-        if (x + 1) <= dim - 1:
-
-
-
-
 
 
     def checkMines(self, x, y):
+        mineCount = 0
+        for i in range(-1, 2):
+            for j in range(-1, 2):
+                if i == 0 and y == 0:
+                    continue
+                if isValid(self, x + i, y + j):
+                    if self.board[x + i, y + j] == 'm':
+                        mineCount += 1
+        self.board[x, y] == mineCount
 
     def isValid(self, x, y):
         if x < 0 or y < 0 or (x > self.dim - 1) or y > (self.dim - 1):
