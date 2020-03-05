@@ -37,3 +37,10 @@ class Board:
         if x < 0 or y < 0 or (x > self.dim - 1) or y > (self.dim - 1):
             return False
         return True
+
+    def printMaze(self):
+        for x in range(self.dim):
+            print("\n")
+            for y in range(self.dim):
+                print(self.nums[x][y], end="      ")
+
