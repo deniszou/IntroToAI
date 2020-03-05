@@ -8,18 +8,18 @@ class Board:
         self.board = numpy.zeros((dim * dim))
         i = 0
         while numMines > 0:
-            board[i] = 'm'
+            self.board[i] = 'm'
             i -= 1
         # shuffle the array
-        numpy.random.shuffle(board)
-        board.reshape((dim, dim))
+        numpy.random.shuffle(self.board)
+        self.board.reshape((dim, dim))
         # iterate through the array and number non-mine pieces based on search or surrounding mines
         for x in range(dim):
             for y in range(dim):
-                if board[(x, y)] == 'm':
+                if self.board[(x, y)] == 'm':
                     continue
                 else:
-                    board[(x, y)] = checkMines(board, x, y)
+                    Board.checkMines(self.board, x, y)
 
 
     def checkMines(self, x, y):
@@ -32,6 +32,7 @@ class Board:
                     if self.board[x + i, y + j] == 'm':
                         mineCount += 1
         self.board[x, y] == mineCount
+
 
     def isValid(self, x, y):
         if x < 0 or y < 0 or (x > self.dim - 1) or y > (self.dim - 1):
