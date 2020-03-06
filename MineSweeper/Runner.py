@@ -3,7 +3,7 @@ from Agent import Agent
 
 if __name__ == '__main__':
     # ---------------Create & print maze---------------
-    dimension = int(input("What is the dimension of the board (Enter whole number)?\n"))
+    dimension = int(input("What is the dimension of the board (Enter whole number)?  "))
     while True:
         try:
             mines = int(input("Please enter a number of mines: "))
