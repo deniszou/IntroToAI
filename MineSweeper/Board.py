@@ -40,10 +40,5 @@ class Board:
             return False
         return True
 
-    def printMaze(self):
-        '''
-        for x in range(self.dim):
-            print("\n")
-            for y in range(self.dim):
-            '''
+    def printBoard(self):
         print(self.board)

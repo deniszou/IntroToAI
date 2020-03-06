@@ -10,6 +10,6 @@ if __name__ == '__main__':
         except mines >= dimension * dimension:
             print("Oops!  Invalid number of mines.  Try again...")
     board = Board(dimension, mines)
-    board.printMaze()
+    board.printBoard()
 
     #---------------Print out solutions here---------------
