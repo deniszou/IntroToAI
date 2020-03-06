@@ -2,13 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d559a04-e89e-4298-8af8-afe413c60404" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/CS440.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CS440.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MineSweeper/Board.py" beforeDir="false" afterPath="$PROJECT_DIR$/MineSweeper/Board.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -23,6 +31,79 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager" selected="Python.Runner (1)">
+    <configuration name="Board" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="CS440" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\Denis\PycharmProjects\untitled\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/MineSweeper" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MineSweeper/Board.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Runner (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="CS440" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\Denis\PycharmProjects\untitled\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/MineSweeper" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MineSweeper/Runner.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Runner" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="CS440" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\Denis\PycharmProjects\untitled\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/MazeRunner" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MazeRunner/Runner.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.Runner (1)" />
+        <item itemvalue="Python.Runner" />
+        <item itemvalue="Python.Board" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -68,32 +149,128 @@
       <option name="project" value="LOCAL" />
       <updated>1583440412767</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="untested complete board">
+      <created>1583446439918</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1583446439918</updated>
+    </task>
+    <task id="LOCAL-00005" summary="runner added">
+      <created>1583449019295</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1583449019295</updated>
+    </task>
+    <task id="LOCAL-00006" summary="typos">
+      <created>1583449274029</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1583449274029</updated>
+    </task>
+    <task id="LOCAL-00007" summary="tested board code">
+      <created>1583453026874</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1583453026874</updated>
+    </task>
+    <task id="LOCAL-00008" summary="syntax">
+      <created>1583453112684</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1583453112684</updated>
+    </task>
+    <task id="LOCAL-00009" summary="minor fix">
+      <created>1583455078285</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1583455078285</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="harder mazes added and mazes.py attributes added" />
     <MESSAGE value="board almost done" />
-    <option name="LAST_COMMIT_MESSAGE" value="board almost done" />
+    <MESSAGE value="untested complete board" />
+    <MESSAGE value="runner added" />
+    <MESSAGE value="typos" />
+    <MESSAGE value="tested board code" />
+    <MESSAGE value="syntax" />
+    <MESSAGE value="minor fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor fix" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="370" y="0" key="#Board" timestamp="1583446495838">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="370" y="0" key="#Board/0.0.1280.680@0.0.1280.680" timestamp="1583446495838" />
+    <state x="370" y="0" key="#Runner" timestamp="1583448756016">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="370" y="0" key="#Runner/0.0.1280.680@0.0.1280.680" timestamp="1583448756016" />
+    <state x="381" y="0" key="#Runner_(1)" timestamp="1583449379418">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="381" y="0" key="#Runner_(1)/0.0.1280.680@0.0.1280.680" timestamp="1583449379418" />
     <state x="97" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583274625913">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="97" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1583274625913" />
-    <state x="297" y="0" key="CommitChangelistDialog2" timestamp="1583440411714">
+    <state x="297" y="0" key="CommitChangelistDialog2" timestamp="1583455077430">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="297" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1583440411714" />
+    <state x="297" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1583455077430" />
     <state x="493" y="171" key="FileChooserDialogImpl" timestamp="1581899598991">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="493" y="171" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1581899598991" />
     <state x="739" y="262" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1581721476528" />
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1583440432734">
+    <state width="1259" height="163" key="GridCell.Tab.0.bottom" timestamp="1583455033201">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1583440432734" />
+    <state width="1259" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1583455033201" />
+    <state width="1259" height="163" key="GridCell.Tab.0.center" timestamp="1583455033200">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1259" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1583455033200" />
+    <state width="1259" height="163" key="GridCell.Tab.0.left" timestamp="1583455033200">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1259" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1583455033200" />
+    <state width="1259" height="163" key="GridCell.Tab.0.right" timestamp="1583455033201">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1259" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1583455033201" />
+    <state width="1259" height="204" key="GridCell.Tab.1.bottom" timestamp="1583452984096">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1259" height="204" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1583452984096" />
+    <state width="1259" height="204" key="GridCell.Tab.1.center" timestamp="1583452984095">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1259" height="204" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1583452984095" />
+    <state width="1259" height="204" key="GridCell.Tab.1.left" timestamp="1583452984095">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1259" height="204" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1583452984095" />
+    <state width="1259" height="204" key="GridCell.Tab.1.right" timestamp="1583452984096">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1259" height="204" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1583452984096" />
+    <state x="151" y="0" key="SettingsEditor" timestamp="1583449364300">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="151" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1583449364300" />
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1583455088606">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1583455088606" />
     <state x="339" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1583375643169">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -102,9 +279,9 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="451" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1581894084050" />
-    <state x="387" y="132" key="git4idea.merge.GitPullDialog" timestamp="1583273545202">
+    <state x="387" y="132" key="git4idea.merge.GitPullDialog" timestamp="1583533335157">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="387" y="132" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1583273545202" />
+    <state x="387" y="132" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1583533335157" />
   </component>
 </project>
