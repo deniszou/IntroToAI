@@ -1,4 +1,4 @@
-from Board.py import Board
+from Board import Board
 
 if __name__ == '__main__':
     # ---------------Create & print maze---------------
@@ -10,6 +10,6 @@ if __name__ == '__main__':
         except mines >= dimension * dimension:
             print("Oops!  Invalid number of mines.  Try again...")
     board = Board(dimension, mines)
-    maze.printMaze()
+    board.printMaze()
 
     #---------------Print out solutions here---------------
