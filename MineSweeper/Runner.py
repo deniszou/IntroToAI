@@ -1,4 +1,5 @@
 from Board import Board
+from Agent import Agent
 
 if __name__ == '__main__':
     # ---------------Create & print maze---------------
@@ -11,5 +12,6 @@ if __name__ == '__main__':
             print("Oops!  Invalid number of mines.  Try again...")
     board = Board(dimension, mines)
     board.printBoard()
+    agent = Agent(board)
 
     #---------------Print out solutions here---------------
