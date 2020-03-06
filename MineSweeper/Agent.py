@@ -15,7 +15,6 @@ class Agent:
         print("Playing Game...")
         i = 2
         self.gameBoard.printBoard()
-        print(self.agentBoard)
 
         # For the first turn we guess in the corner to optimize chances for solvability -coords (0,0)-
         self.clickSquare(0, 0)
@@ -32,8 +31,19 @@ class Agent:
             print("Turn ", i, ":")
             print(self.agentBoard)
             print(self.visitedSquares)
+            currentSquare = (-1, -1)
 
-            currentSquare = self.visitedSquares.pop()
+            if self.safeSquareStack:  # If safeSquareStack is not empty, pop most recently added
+                currentSquare = self.safeSquareStack.pop()
+            else:  # If it is empty, that means no squares are guaranteed to be safe, so choose random
+                randX = numpy.random.randint(low=0, high=self.gameBoard.dim)
+                randY = numpy.random.randint(low=0, high=self.gameBoard.dim)
+
+                while self.agentBoard[randX, randY] != 'x':
+                    randX = numpy.random.randint(low=0, high=self.gameBoard.dim)
+                    randY = numpy.random.randint(low=0, high=self.gameBoard.dim)
+                self.clickSquare(randX, randY)
+
             clue = self.agentBoard[currentSquare]
             print(clue)
             surHidSquares = 0
@@ -55,6 +65,12 @@ class Agent:
                                 surMines += 1
                             elif self.agentBoard[x + i, y + j].isdigit() or self.safeSquareStack.contains(x + i, y + j):
                                 surSafeSquares += 1
+                        else:
+                            surSafeSquares += 1
+
+                print("surHidSquares: ", surHidSquares)
+                print("surMines: ", surMines)
+                print("surSafeSquares: ", surSafeSquares)
 
                 if ord(clue) - surMines == surHidSquares:  # Every hidden neighbor is a mine
                     print("Every hidden neighbor is mine")
@@ -64,7 +80,7 @@ class Agent:
                                 continue
                             if Agent.isValid(self, x + i, y + j):
                                 if self.agentBoard[x + i, y + j] == 'x':
-                                    self.agentBoard[x+i, y+j] = 'm'
+                                    self.agentBoard[x + i, y + j] = 'm'
 
                 elif 8 - ord(clue) - surSafeSquares == surHidSquares:  # Every hidden neighbor is safe
                     print("Every hidden neighbor is safe")
@@ -75,15 +91,6 @@ class Agent:
                             if Agent.isValid(self, x + i, y + j):
                                 if self.agentBoard[x + i, y + j] == 'x':
                                     self.safeSquareStack.append(x, y)
-
-            else:  # Choose a random square since no guaranteed safe spaces
-                randX = numpy.random.randint(low=0, high=self.gameBoard.dim)
-                randY = numpy.random.randint(low=0, high=self.gameBoard.dim)
-
-                while self.agentBoard[randX, randY] != 'x':
-                    randX = numpy.random.randint(low=0, high=self.gameBoard.dim)
-                    randY = numpy.random.randint(low=0, high=self.gameBoard.dim)
-                self.clickSquare(randX, randY)
 
     def clickSquare(self, x, y):
         self.agentBoard[x, y] = self.gameBoard.board[x, y]
