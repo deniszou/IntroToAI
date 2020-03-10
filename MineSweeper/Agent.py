@@ -85,6 +85,8 @@ class Agent:
                                             self.agentBoard[x + i, y + j] = 'm'
 
                 self.checkGameOver()
+                if self.gameOver:
+                    break
                 if self.safeSquareStack:
                     currentSquare = self.safeSquareStack.pop()
                 else:

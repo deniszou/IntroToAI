@@ -12,9 +12,11 @@ if __name__ == '__main__':
         except mines >= dimension * dimension:
             print("Oops!  Invalid number of mines.  Try again...") """
     # board = Board(dimension, mines)
-    board = Board(15, 50)
+    board = Board(50, 1000)
     board.printBoard()
-    agent = Agent(board)
-    agent.play()
+    agent1 = Agent(board)
+    agent2 = ImprovedAgent(board)
+    agent1.play()
+    agent2.play()
 
     #---------------Print out solutions here---------------
