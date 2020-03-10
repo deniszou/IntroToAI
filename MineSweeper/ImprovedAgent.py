@@ -2,7 +2,7 @@ import numpy
 
 
 # This class will be used to play the game on Agent's own board
-class Agent:
+class ImprovedAgent:
     def __init__(self, board):
         self.gameOver = False
         self.gameBoard = board
@@ -46,7 +46,7 @@ class Agent:
                             for j in range(-1, 2):
                                 if i == 0 and j == 0:
                                     continue
-                                if Agent.isValid(self, x + i, y + j):
+                                if ImprovedAgent.isValid(self, x + i, y + j):
                                     if self.agentBoard[x + i, y + j] == 'x':
                                         surHidSquares += 1
                                     elif self.agentBoard[x + i, y + j] == 'm':
@@ -68,7 +68,7 @@ class Agent:
                                 for j in range(-1, 2):
                                     if i == 0 and j == 0:
                                         continue
-                                    if Agent.isValid(self, x + i, y + j):
+                                    if ImprovedAgent.isValid(self, x + i, y + j):
                                         if self.agentBoard[x + i, y + j] == 'x' and not (x + i,
                                                                                          y + j) in self.safeSquareStack:
                                             self.safeSquareStack.append((x + i, y + j))
@@ -79,7 +79,7 @@ class Agent:
                                 for j in range(-1, 2):
                                     if i == 0 and j == 0:
                                         continue
-                                    if Agent.isValid(self, x + i, y + j):
+                                    if ImprovedAgent.isValid(self, x + i, y + j):
                                         if self.agentBoard[x + i, y + j] == 'x':
                                             print("Labeling mine: (", x + i, ",", y + j, ")")
                                             self.agentBoard[x + i, y + j] = 'm'
@@ -88,7 +88,13 @@ class Agent:
                 if self.safeSquareStack:
                     currentSquare = self.safeSquareStack.pop()
                 else:
-                    print("CHOOSING RANDOM SQUARE")
+                    """
+                    Here is where the logic differs from the basic agent.
+                    To avoid choosing a random mine, we will analyze squares that are adjacent to squares
+                    with existing clues. We enumerate all possible mine configurations using this
+                    data and choose the square that has the least number of configurations with it being a mine.
+                    """
+                    # print("CHOOSING RANDOM SQUARE")
                     randX = numpy.random.randint(low=0, high=self.gameBoard.dim)
                     randY = numpy.random.randint(low=0, high=self.gameBoard.dim)
 

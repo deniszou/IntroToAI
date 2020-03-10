@@ -1,6 +1,6 @@
 from Board import Board
 from Agent import Agent
-from Game import Game
+from ImprovedAgent import ImprovedAgent
 
 if __name__ == '__main__':
     # ---------------Create & print maze---------------
@@ -12,7 +12,7 @@ if __name__ == '__main__':
         except mines >= dimension * dimension:
             print("Oops!  Invalid number of mines.  Try again...") """
     # board = Board(dimension, mines)
-    board = Board(15, 30)
+    board = Board(15, 50)
     board.printBoard()
     agent = Agent(board)
     agent.play()
