@@ -10,6 +10,7 @@ class Agent:
         self.visitedSquares = []
         self.safeSquareStack = []
         self.explosions = 0
+        self.randomChoices = 0
 
     def play(self):
         print("Playing Game...")
@@ -32,7 +33,7 @@ class Agent:
             if self.safeSquareStack:  # If safeSquareStack is not empty, pop most recently added
                 currentSquare = self.safeSquareStack.pop()
             else:
-                for square in self.visitedSquares: # Iterate through all visitedSquares to gather new info
+                for square in self.visitedSquares:  # Iterate through all visitedSquares to gather new info
                     surHidSquares = 0
                     surMines = 0
                     surSafeSquares = 0
@@ -91,6 +92,7 @@ class Agent:
                     currentSquare = self.safeSquareStack.pop()
                 else:
                     print("CHOOSING RANDOM SQUARE")
+                    self.randomChoices += 1
                     randX = numpy.random.randint(low=0, high=self.gameBoard.dim)
                     randY = numpy.random.randint(low=0, high=self.gameBoard.dim)
 
@@ -125,6 +127,7 @@ class Agent:
             print("gameBoard: \n", self.gameBoard.board)
             print("agentBoard: \n", self.agentBoard)
             print("Explosions: ", self.explosions)
+            print("RandomChoices: ", self.randomChoices)
             self.gameOver = True
 
     def isValid(self, x, y):
