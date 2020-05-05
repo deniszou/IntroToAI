@@ -35,7 +35,28 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.Runner (1)">
+  <component name="RunManager" selected="Python.BasicAgent">
+    <configuration name="BasicAgent" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="CS440" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\Denis\PycharmProjects\untitled\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Colorization" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Colorization/BasicAgent.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Board" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="CS440" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -101,8 +122,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Runner (1)" />
+        <item itemvalue="Python.BasicAgent" />
         <item itemvalue="Python.Runner" />
+        <item itemvalue="Python.Runner (1)" />
         <item itemvalue="Python.Board" />
       </list>
     </recent_temporary>
@@ -256,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588706644260</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="testable push needs debugging">
+      <created>1588722564395</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1588722564395</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -276,9 +305,14 @@
     <MESSAGE value="greyscale, rep colors done not debugged yet lol" />
     <MESSAGE value="knn, kmeans somewhat debugged" />
     <MESSAGE value="some more debugging on knn" />
-    <option name="LAST_COMMIT_MESSAGE" value="some more debugging on knn" />
+    <MESSAGE value="testable push needs debugging" />
+    <option name="LAST_COMMIT_MESSAGE" value="testable push needs debugging" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="381" y="0" key="#BasicAgent" timestamp="1588722886373">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="381" y="0" key="#BasicAgent/0.0.1280.680@0.0.1280.680" timestamp="1588722886373" />
     <state x="370" y="0" key="#Board" timestamp="1583446495838">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -295,35 +329,35 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="381" y="0" key="#Runner_(1)/0.0.1280.680@0.0.1280.680" timestamp="1583449379418" />
-    <state x="97" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583274625913">
+    <state x="97" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588722866855">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="97" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1583274625913" />
-    <state x="271" y="0" key="CommitChangelistDialog2" timestamp="1588706643244">
+    <state x="97" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1588722866855" />
+    <state x="271" y="0" key="CommitChangelistDialog2" timestamp="1588723154963">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="271" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1588706643244" />
+    <state x="271" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1588723154963" />
     <state x="493" y="171" key="FileChooserDialogImpl" timestamp="1588620657502">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="493" y="171" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1588620657502" />
     <state x="739" y="262" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1581721476528" />
-    <state width="629" height="295" key="GridCell.Tab.0.bottom" timestamp="1584140514433">
+    <state width="1259" height="295" key="GridCell.Tab.0.bottom" timestamp="1588723161319">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="629" height="295" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1584140514433" />
-    <state width="629" height="295" key="GridCell.Tab.0.center" timestamp="1584140514433">
+    <state width="1259" height="295" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1588723161319" />
+    <state width="1259" height="295" key="GridCell.Tab.0.center" timestamp="1588723161318">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="629" height="295" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1584140514433" />
-    <state width="629" height="295" key="GridCell.Tab.0.left" timestamp="1584140514433">
+    <state width="1259" height="295" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1588723161318" />
+    <state width="1259" height="295" key="GridCell.Tab.0.left" timestamp="1588723161318">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="629" height="295" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1584140514433" />
-    <state width="629" height="295" key="GridCell.Tab.0.right" timestamp="1584140514433">
+    <state width="1259" height="295" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1588723161318" />
+    <state width="1259" height="295" key="GridCell.Tab.0.right" timestamp="1588723161318">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="629" height="295" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1584140514433" />
+    <state width="1259" height="295" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1588723161318" />
     <state width="1259" height="204" key="GridCell.Tab.1.bottom" timestamp="1583649638380">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -344,10 +378,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="151" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1583449364300" />
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1588706648281">
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1588722573196">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1588706648281" />
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1588722573196" />
     <state x="339" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1585847563323">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

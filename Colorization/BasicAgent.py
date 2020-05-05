@@ -1,3 +1,4 @@
+import PIL
 from PIL import Image
 import numpy
 import math
@@ -152,4 +153,4 @@ def findNeighbors(repColors, repColorsList, blockList, block, list, width, heigh
     return "error"
 
 
-parsePixel('beach.png')
+parsepixels('beach.png')
