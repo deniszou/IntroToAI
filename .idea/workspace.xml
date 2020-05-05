@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d559a04-e89e-4298-8af8-afe413c60404" name="Default Changelist" comment="improved agent framework file">
+      <change afterPath="$PROJECT_DIR$/MineSweeper/.idea/rSettings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Colorization/BasicAgent.py" beforeDir="false" afterPath="$PROJECT_DIR$/Colorization/BasicAgent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MineSweeper/ImprovedAgent.py" beforeDir="false" afterPath="$PROJECT_DIR$/MineSweeper/ImprovedAgent.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MineSweeper/Runner.py" beforeDir="false" afterPath="$PROJECT_DIR$/MineSweeper/Runner.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -211,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583879042411</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="initial commit">
+      <created>1588619384958</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1588619384958</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -225,7 +235,8 @@
     <MESSAGE value="minor fix" />
     <MESSAGE value="agentcell class" />
     <MESSAGE value="improved agent framework file" />
-    <option name="LAST_COMMIT_MESSAGE" value="improved agent framework file" />
+    <MESSAGE value="initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
   </component>
   <component name="WindowStateProjectService">
     <state x="370" y="0" key="#Board" timestamp="1583446495838">
@@ -248,14 +259,14 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="97" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1583274625913" />
-    <state x="297" y="0" key="CommitChangelistDialog2" timestamp="1583879041442">
+    <state x="297" y="0" key="CommitChangelistDialog2" timestamp="1588619383813">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="297" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1583879041442" />
-    <state x="493" y="171" key="FileChooserDialogImpl" timestamp="1581899598991">
+    <state x="297" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1588619383813" />
+    <state x="493" y="171" key="FileChooserDialogImpl" timestamp="1588620657502">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="493" y="171" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1581899598991" />
+    <state x="493" y="171" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1588620657502" />
     <state x="739" y="262" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1581721476528" />
     <state width="629" height="295" key="GridCell.Tab.0.bottom" timestamp="1584140514433">
       <screen x="0" y="0" width="1280" height="680" />
@@ -293,10 +304,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="151" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1583449364300" />
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1583879053963">
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1588619392227">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1583879053963" />
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1588619392227" />
     <state x="339" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1585847563323">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -309,5 +320,9 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="387" y="132" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1584124312901" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1588620297632">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1588620297632" />
   </component>
 </project>
