@@ -6,12 +6,14 @@ def parsepixels(file):
     im = Image.open(file)
     width, height = im.size
     block = []
-    k = 0
+    #k = 0
     rmax = 0
     gmax = 0
     bmax = 0
     pixelList = {}
-    trueColorList = []
+    greyColorList = {}
+    trueColorList = {}
+    repColorList = {}
     #create list of 3x3
     #create list of rgb
     #iterate through pixels
@@ -22,15 +24,23 @@ def parsepixels(file):
                 for j in range(-1,2):
                     block.append(x + i, y + j)
             pixelList[x, y] = block
-            trueColorList[k] = im.getpixel(x,y)
+            trueColorList[x, y] = im.getpixel(x,y)
+            greyColorList[x, y] = trueColorList[x, y][0] * 0.21 + trueColorList[x, y][1] * 0.72 + trueColorList[x, y][2] * 0.07
+
             if trueColorList[k][0] > rmax:
                 rmax = trueColorList[k][0]
             if trueColorList[k][1] > gmax:
                 gmax = trueColorList[k][1]
             if trueColorList[k][2] > bmax:
                 bmax = trueColorList[k][2]
-            k += 1
-    repColors = kmeans(trueColorList, k)
+
+            #k += 1
+    repColors = kmeans(trueColorList, width * height)
+    for x in range(0, width/2):
+        for y in range(0, height):
+            repColorList[x, y] = findClosest(truecolorList[x, y], repColors)
+
+
 
 
 #run k = 5 clustering here
@@ -68,3 +78,11 @@ def kmeans(list, listSize):
 
 def eucd(point1, point2):
     return math.sqrt(sum([(a - b) ** 2 for a, b in zip(point1, point2)]))
+
+
+def findClosest(point, list):
+    min = (100000, 0)
+    for i in range(0, 5):
+        if eucd(point, list[i]) < min:
+            min = (eucd(point, list[i]), i)
+    return list[min[1]]
