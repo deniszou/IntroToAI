@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8d559a04-e89e-4298-8af8-afe413c60404" name="Default Changelist" comment="improved agent framework file">
       <change afterPath="$PROJECT_DIR$/MineSweeper/.idea/rSettings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Colorization/BasicAgent.py" beforeDir="false" afterPath="$PROJECT_DIR$/Colorization/BasicAgent.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MineSweeper/ImprovedAgent.py" beforeDir="false" afterPath="$PROJECT_DIR$/MineSweeper/ImprovedAgent.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MineSweeper/Runner.py" beforeDir="false" afterPath="$PROJECT_DIR$/MineSweeper/Runner.py" afterDir="false" />
@@ -242,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588660134201</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="knn, kmeans somewhat debugged">
+      <created>1588705272246</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1588705272250</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -260,7 +266,8 @@
     <MESSAGE value="pixels extracted, kmeans started" />
     <MESSAGE value="kmeans complete hasnt been debugged" />
     <MESSAGE value="greyscale, rep colors done not debugged yet lol" />
-    <option name="LAST_COMMIT_MESSAGE" value="greyscale, rep colors done not debugged yet lol" />
+    <MESSAGE value="knn, kmeans somewhat debugged" />
+    <option name="LAST_COMMIT_MESSAGE" value="knn, kmeans somewhat debugged" />
   </component>
   <component name="WindowStateProjectService">
     <state x="370" y="0" key="#Board" timestamp="1583446495838">
@@ -283,10 +290,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="97" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1583274625913" />
-    <state x="271" y="0" key="CommitChangelistDialog2" timestamp="1588660133280">
+    <state x="271" y="0" key="CommitChangelistDialog2" timestamp="1588705271039">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="271" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1588660133280" />
+    <state x="271" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1588705271039" />
     <state x="493" y="171" key="FileChooserDialogImpl" timestamp="1588620657502">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -328,10 +335,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="151" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1583449364300" />
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1588660139101">
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1588705279756">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1588660139101" />
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1588705279756" />
     <state x="339" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1585847563323">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

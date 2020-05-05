@@ -15,6 +15,7 @@ def parsepixels(file):
     trueColorList = {}
     repColorList = {}
     greyNeighbors = []
+    greyBlock = []
     #create list of 3x3
     #create list of rgb, greyscale, repcolor
     #iterate through pixels
@@ -37,12 +38,16 @@ def parsepixels(file):
 
             k += 1
     repColors = kmeans(trueColorList, width, height)
-    for x in range(0, width/2):
+    for x in range(0, width):
         for y in range(0, height):
             # convert left side to rep colors
             repColorList[x, y] = findClosest(truecolorList[x, y], repColors)
             # convert right side with knn
-            greyNeighbors = findNeighbors(greyColorList[x, y], greyColorList, width, height, 6)
+            for pixel in pixelList[x, y]:
+                greyBlock.append(greyColorList[pixel])
+            greyNeighbors = findNeighbors(pixelList, greyBlock, greyColorList, width, height, 6)
+    for coord in greyNeighbors:
+        if
 
 
 #run k = 5 clustering here
@@ -93,15 +98,18 @@ def findClosest(point, list):
 
 
 #knn function
-def findNeighbors(point, list, width, height, n):
+def findNeighbors(blockList, block, list, width, height, n):
     distList = []
     xyList = {}
     res = []
+    greyBlock = []
     j = 0
     for x in width/2:
         for y in height:
-            xyList[eucd(point, list[x, y])] = (x, y)
-            distList[j] = eucd(point, list[x, y])
+            for pixel in blockList[x, y]:
+                greyBlock.append(list[pixel])
+            xyList[eucd(block, greyBlock)] = (x, y)
+            distList[j] = eucd(block, greyBlock)
             j += 1
     distList.sort()
     for i in range(0, n):
