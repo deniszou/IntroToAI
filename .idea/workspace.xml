@@ -235,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588654552735</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="greyscale, rep colors done not debugged yet lol">
+      <created>1588660134201</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1588660134201</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -252,7 +259,8 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="pixels extracted, kmeans started" />
     <MESSAGE value="kmeans complete hasnt been debugged" />
-    <option name="LAST_COMMIT_MESSAGE" value="kmeans complete hasnt been debugged" />
+    <MESSAGE value="greyscale, rep colors done not debugged yet lol" />
+    <option name="LAST_COMMIT_MESSAGE" value="greyscale, rep colors done not debugged yet lol" />
   </component>
   <component name="WindowStateProjectService">
     <state x="370" y="0" key="#Board" timestamp="1583446495838">
@@ -275,10 +283,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="97" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1583274625913" />
-    <state x="271" y="0" key="CommitChangelistDialog2" timestamp="1588654551641">
+    <state x="271" y="0" key="CommitChangelistDialog2" timestamp="1588660133280">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="271" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1588654551641" />
+    <state x="271" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1588660133280" />
     <state x="493" y="171" key="FileChooserDialogImpl" timestamp="1588620657502">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -320,10 +328,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="151" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1583449364300" />
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1588654564346">
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1588660139101">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1588654564346" />
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1588660139101" />
     <state x="339" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1585847563323">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
