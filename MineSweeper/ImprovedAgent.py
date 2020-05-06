@@ -15,7 +15,6 @@ class ImprovedAgent:
         self.safeSquareStack = []
         self.possibleMineSquares = []
         self.explosions = 0
-        self.randomChoices = 0
 
     def play(self):
         print("Playing Game...")
@@ -92,8 +91,6 @@ class ImprovedAgent:
                                             self.agentBoard[x + i, y + j] = 'm'
 
                 self.checkGameOver()
-                if self.gameOver:
-                    break
                 if self.safeSquareStack:
                     currentSquare = self.safeSquareStack.pop()
                 else:
@@ -153,8 +150,7 @@ class ImprovedAgent:
                         # print("minSquare: ", minSquare)
                         currentSquare = minSquare
                     else:
-                        print("CHOOSING RANDOM SQUARE")
-                        self.randomChoices += 1
+                        # print("CHOOSING RANDOM SQUARE")
                         randX = numpy.random.randint(low=0, high=self.gameBoard.dim)
                         randY = numpy.random.randint(low=0, high=self.gameBoard.dim)
 
@@ -191,7 +187,6 @@ class ImprovedAgent:
             print("gameBoard: \n", self.gameBoard.board)
             print("agentBoard: \n", self.agentBoard)
             print("Explosions: ", self.explosions)
-            print("RandomChoices: ", self.randomChoices)
             self.gameOver = True
 
     def ncr(self, n, r):
