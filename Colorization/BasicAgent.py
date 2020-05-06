@@ -24,8 +24,7 @@ def parsepixels(file):
             #iterate through 3x3 block
             for i in range(-1,2):
                 for j in range(-1,2):
-                    block.append(x + i)
-                    block.append(y + j)
+                    block.append((x + i, y + j))
             #pixelList is a list of 3x3 blocks
             pixelList[x, y] = block
             trueColorList[x, y] = im.getpixel((x, y))
@@ -47,15 +46,16 @@ def parsepixels(file):
             repColorList[x, y] = findClosest(trueColorList[x, y], repColors)
 
     # convert right side with knn
-    for x in range(width/2, width - 1):
-        for y in range(height/2, height - 1):
+    ch = width/2
+    for x in range(int(width/2), width - 1):
+        for y in range(int(height/2), height - 1):
             for pixel in pixelList[x, y]:
                 greyBlock.append(greyColorList[pixel])
             testColorList[x, y] = findNeighbors(repColors, repColorList, pixelList, greyBlock, greyColorList, width, height, 6)
 
     finalOutput = repColorList
-    for x in range(width/2, width - 1):
-        for y in range(height/2, height - 1):
+    for x in range(int(width/2), width - 1):
+        for y in range(int(height/2), height - 1):
             finalOutput[x, y] = testColorList[x, y]
 
     grayImage = Image.fromarray(greyColorList)
@@ -101,16 +101,16 @@ def kmeans(list, width, height):
                 #print(ind)
             #print(mindist)
             output[mindist[1]].append(point)
-        print(mindist)
+        #print(mindist)
         #calculate true mean for each cluster
-        for i in range(0, 5):
-            meanArr = numpy.mean(output[i], axis=0)
+        for j in range(0, 5):
+            meanArr = numpy.mean(output[j], axis=0)
             mean = tuple(map(int,meanArr.tolist()))
-            if list[c[i]] == mean:
-                res[i] = list[c[i]]
+            if list[c[j]] == mean:
+                res[j] = list[c[j]]
                 check += 1
-            list[c[i]] = mean
-        if check == 4:
+            list[c[j]] = mean
+        if check == 5:
             return res
             break
     return res
