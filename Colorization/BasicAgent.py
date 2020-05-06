@@ -1,4 +1,4 @@
-import Image
+from PIL import Image
 import numpy
 import math
 
@@ -10,12 +10,11 @@ def parsepixels(file):
     rmax = 0
     gmax = 0
     bmax = 0
-    pixelList = []
-    greyColorList = []
-    trueColorList = []
-    repColorList = []
-    testColorList = []
-    #greyNeighbors = []
+    pixelList = {}
+    greyColorList = {}
+    trueColorList = {}
+    repColorList = {}
+    testColorList = {}
     greyBlock = []
     #create list of 3x3
     #create list of rgb, greyscale, repcolor
@@ -25,10 +24,11 @@ def parsepixels(file):
             #iterate through 3x3 block
             for i in range(-1,2):
                 for j in range(-1,2):
-                    block.append(x + i, y + j)
+                    block.append(x + i)
+                    block.append(y + j)
             #pixelList is a list of 3x3 blocks
             pixelList[x, y] = block
-            trueColorList[x, y] = im.getpixel(x,y)
+            trueColorList[x, y] = im.getpixel((x, y))
             greyColorList[x, y] = trueColorList[x, y][0] * 0.21 + trueColorList[x, y][1] * 0.72 + trueColorList[x, y][2] * 0.07
 
             #if trueColorList[k][0] > rmax:
@@ -39,58 +39,73 @@ def parsepixels(file):
             #    bmax = trueColorList[k][2]
 
             k += 1
-    repColors = kmeans(trueColorList, width, height)
+    repColors = kmeans(trueColorList, width - 1, height - 1)
 
-    for x in range(0, width):
-        for y in range(0, height):
+    for x in range(1, width - 1):
+        for y in range(1, height - 1):
             # convert to rep colors
-            repColorList[x, y] = findClosest(truecolorList[x, y], repColors)
+            repColorList[x, y] = findClosest(trueColorList[x, y], repColors)
 
     # convert right side with knn
-    for x in range(width/2, width):
-        for y in range(height/2, height):
+    for x in range(width/2, width - 1):
+        for y in range(height/2, height - 1):
             for pixel in pixelList[x, y]:
                 greyBlock.append(greyColorList[pixel])
-            testColorList[x, y] = findNeighbors(repColors, repColorsList, pixelList, greyBlock, greyColorList, width, height, 6)
+            testColorList[x, y] = findNeighbors(repColors, repColorList, pixelList, greyBlock, greyColorList, width, height, 6)
 
     finalOutput = repColorList
-    for x in range(width/2, width):
-        for y in range(height/2, height):
+    for x in range(width/2, width - 1):
+        for y in range(height/2, height - 1):
             finalOutput[x, y] = testColorList[x, y]
 
     grayImage = Image.fromarray(greyColorList)
-    img.save('grey.png')
+    grayImage.save('grey.png')
     fiveColorImage = Image.fromarray(repColorList)
-    img.save('fiveColor.png')
+    fiveColorImage.save('fiveColor.png')
     finalImage = Image.fromarray(finalOutput)
-    img.save('trainTest.png')
+    finalImage.save('trainTest.png')
 
             #run k = 5 clustering here
 def kmeans(list, width, height):
 
     #pick center indices with k = 5
-    c = numpy.random.randint(0, width, size=(5, 2))
-
+    c = [(numpy.random.randint(1, width),numpy.random.randint(1, height)),
+         (numpy.random.randint(1, width),numpy.random.randint(1, height)),
+         (numpy.random.randint(1, width),numpy.random.randint(1, height)),
+         (numpy.random.randint(1, width),numpy.random.randint(1, height)),
+         (numpy.random.randint(1, width),numpy.random.randint(1, height))]
+#    for i in range(0, 5):
+#        for j in range(0, 2):
+#            if j == 0:
+#                c[i] = numpy.random.randint(0, width)
+#            else:
+#                c[i].append(numpy.random.randint(0, height))
     for i in range(1000):
         # create partitions(group clusters)
-        output = []  #clusters
-        ind = 0  #shud have looped over range instead
+        output = [[],[],[],[],[]]  #clusters
+        #ind = 0  #shud have looped over range instead
         check = 0  #breaks when centroids repeat
-        res = []
-        mindist = (1000000, 0)
-        for point in list:
+        res = [[],[],[],[],[]]
+
+        for point in list.values():
+            ind = 0
+            mindist = (1000000, 0)
             for centerInd in c:
-                if point == list[centerInd]:
+                if point == list[centerInd[0], centerInd[1]]:
                     continue
-                distance = eucd(point, list[centerInd])
+                distance = eucd(point, list[centerInd[0], centerInd[1]])
+                #print(distance)
                 if distance < mindist[0]:
                     mindist = (distance, ind)
                 ind += 1
+                #print(ind)
+            #print(mindist)
             output[mindist[1]].append(point)
-
+        print(mindist)
         #calculate true mean for each cluster
         for i in range(0, 5):
-            mean = numpy.mean(output[i], axis=1)
+            meanArr = numpy.mean(output[i], axis=0)
+            mean = tuple(map(int,meanArr.tolist()))
             if list[c[i]] == mean:
                 res[i] = list[c[i]]
                 check += 1
@@ -107,7 +122,7 @@ def eucd(point1, point2):
 def findClosest(point, list):
     min = (100000, 0)
     for i in range(0, 5):
-        if eucd(point, list[i]) < min:
+        if eucd(point, list[i]) < min[0]:
             min = (eucd(point, list[i]), i)
     return list[min[1]]
 
