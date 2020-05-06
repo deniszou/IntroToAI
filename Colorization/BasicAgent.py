@@ -129,42 +129,50 @@ def findClosest(point, list):
 
 
 #knn function greyblock holds grey values for 3x3 blocks on training side, compared against block, returns list of middle pixels
-def findNeighbors(repColors, repColorsList, blockList, block, list, width, height, n):
+def findNeighbors(repColors, repColorsList, blockList, block, alist, width, height, n):
     distList = []
-    xyList = {}
+    #xyList = {}
     coords = []
     greyBlock = []
-    maxList = {}
-    eucList = []
+    maxList = []
+    #eucList = []
     colorCount = [0, 0, 0, 0, 0]
-    j = 0
+    max = 0
+    #j = 0
 
-    for x in range(int(width/2)):
-        for y in range(height):
+    for x in range(1, int(width/2)):
+        for y in range(1, height - 1):
             for pixel in blockList[x, y]:
-                greyBlock.append(list[pixel])
+                greyBlock.append(alist[pixel])
             #xyList[eucd(block, greyBlock)] = (x, y)
-            distList[j] = (eucd(block, greyBlock), (x, y))
-            j += 1
-    distList.sort(distList, key = lambda dist: dist[0])
+            distList.append((eucd(block, greyBlock), (x, y)))
+            #else:
+            #    distList[j] = (eucd(block, greyBlock), (x, y))
+            #j += 1
+    distList.sort(key = lambda dist: dist[0])
 
     for i in range(0, n):
         coords.append(distList[i])
     for coord in coords:
         for color in repColors:
             if repColorsList[coord[1]] == color:
-                coord.append(repColors.index(color))
+                lcoord = list(coord)
+                lcoord.append(repColors.index(color))
+                coords[coords.index(coord)] = lcoord
                 colorCount[repColors.index(color)] += 1
+    for num in colorCount:
+        if num > max:
+            max = num
     for count in colorCount:
-        if count == max(colorCount):
+        if count == max:
             maxList.append(colorCount.index(count))
     if len(maxList) == 1:
         return repColors[maxList[0]]
     else:
         for coord in coords:
-            for max in maxList:
-                if max == coord[2]:
-                    return repColors[max]
+            for m in maxList:
+                if m == coord[2]:
+                    return repColors[m]
     return "error"
 
 
