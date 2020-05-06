@@ -14,7 +14,6 @@ def parsepixels(file):
     trueColorList = {}
     repColorList = {}
     testColorList = {}
-    greyBlock = []
     #create list of 3x3
     #create list of rgb, greyscale, repcolor
     #iterate through pixels
@@ -50,6 +49,7 @@ def parsepixels(file):
     ch = width/2
     for x in range(int(width/2), width - 1):
         for y in range(int(height/2), height - 1):
+            greyBlock = []
             for pixel in pixelList[x, y]:
                 greyBlock.append(greyColorList[pixel])
             testColorList[x, y] = findNeighbors(repColors, repColorList, pixelList, greyBlock, greyColorList, width, height, 6)
