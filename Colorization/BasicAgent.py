@@ -5,7 +5,6 @@ import math
 def parsepixels(file):
     im = Image.open(file)
     width, height = im.size
-    block = []
     k = 0
     rmax = 0
     gmax = 0
@@ -19,14 +18,16 @@ def parsepixels(file):
     #create list of 3x3
     #create list of rgb, greyscale, repcolor
     #iterate through pixels
-    for x in range(1, width - 1):
-        for y in range(1, height - 1):
+    for x in range(0, width):
+        for y in range(0, height):
+            block = []
             #iterate through 3x3 block
-            for i in range(-1,2):
-                for j in range(-1,2):
-                    block.append((x + i, y + j))
-            #pixelList is a list of 3x3 blocks
-            pixelList[x, y] = block
+            if x != 0 and x != width - 1 and y != 0 and y != height - 1:
+                for i in range(-1,2):
+                    for j in range(-1,2):
+                        block.append((x + i, y + j))
+                #pixelList is a list of 3x3 blocks
+                pixelList[x, y] = block
             trueColorList[x, y] = im.getpixel((x, y))
             greyColorList[x, y] = trueColorList[x, y][0] * 0.21 + trueColorList[x, y][1] * 0.72 + trueColorList[x, y][2] * 0.07
 
@@ -38,7 +39,7 @@ def parsepixels(file):
             #    bmax = trueColorList[k][2]
 
             k += 1
-    repColors = kmeans(trueColorList, width - 1, height - 1)
+    repColors = kmeans(trueColorList, width, height)
 
     for x in range(1, width - 1):
         for y in range(1, height - 1):
@@ -69,11 +70,11 @@ def parsepixels(file):
 def kmeans(list, width, height):
 
     #pick center indices with k = 5
-    c = [(numpy.random.randint(1, width),numpy.random.randint(1, height)),
-         (numpy.random.randint(1, width),numpy.random.randint(1, height)),
-         (numpy.random.randint(1, width),numpy.random.randint(1, height)),
-         (numpy.random.randint(1, width),numpy.random.randint(1, height)),
-         (numpy.random.randint(1, width),numpy.random.randint(1, height))]
+    c = [(numpy.random.randint(0, width),numpy.random.randint(1, height)),
+         (numpy.random.randint(0, width),numpy.random.randint(1, height)),
+         (numpy.random.randint(0, width),numpy.random.randint(1, height)),
+         (numpy.random.randint(0, width),numpy.random.randint(1, height)),
+         (numpy.random.randint(0, width),numpy.random.randint(1, height))]
 #    for i in range(0, 5):
 #        for j in range(0, 2):
 #            if j == 0:
@@ -138,8 +139,8 @@ def findNeighbors(repColors, repColorsList, blockList, block, list, width, heigh
     colorCount = [0, 0, 0, 0, 0]
     j = 0
 
-    for x in width/2:
-        for y in height:
+    for x in range(int(width/2)):
+        for y in range(height):
             for pixel in blockList[x, y]:
                 greyBlock.append(list[pixel])
             #xyList[eucd(block, greyBlock)] = (x, y)
