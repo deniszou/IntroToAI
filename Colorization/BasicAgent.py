@@ -166,6 +166,7 @@ def findNeighbors(repColors, repColorsList, blockList, block, alist, width, heig
     for count in colorCount:
         if count == max:
             maxList.append(colorCount.index(count))
+            colorCount[colorCount.index(count)] = 0
     if len(maxList) == 1:
         return repColors[maxList[0]]
     else:
