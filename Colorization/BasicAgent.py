@@ -133,7 +133,6 @@ def findNeighbors(repColors, repColorsList, blockList, block, alist, width, heig
     distList = []
     #xyList = {}
     coords = []
-    greyBlock = []
     maxList = []
     #eucList = []
     colorCount = [0, 0, 0, 0, 0]
@@ -142,6 +141,7 @@ def findNeighbors(repColors, repColorsList, blockList, block, alist, width, heig
 
     for x in range(1, int(width/2)):
         for y in range(1, height - 1):
+            greyBlock = []
             for pixel in blockList[x, y]:
                 greyBlock.append(alist[pixel])
             #xyList[eucd(block, greyBlock)] = (x, y)
