@@ -90,15 +90,17 @@ def parsepixels(file):
 
     # convert right side with knn
     for x in range(int(width/2), width - 1):
-        for y in range(int(height/2), height - 1):
+        for y in range(1, height - 1):
             greyBlock = []
             for pixel in pixelList[x, y]:
                 greyBlock.append(greyColorList[pixel])
             testColorList[x, y] = findNeighbors(x, y, cDict, clusters, repColors, repColorList, pixelList, greyBlock, greyColorList, width, height, 6)
+            if testColorList[x, y] != repColorList[x, y]:
+                break
 
     finalOutput = repColorList
     for x in range(int(width/2), width - 1):
-        for y in range(int(height/2), height - 1):
+        for y in range(1, height - 1):
             finalOutput[x, y] = testColorList[x, y]
 
     #final output here
@@ -106,7 +108,7 @@ def parsepixels(file):
     for x in range(1, height - 1):
         col = []
         for y in range(1, width - 1):
-            col.append(finalList[y, x])
+            col.append(finalOutput[y, x])
         finalList.append(col)
     finalArray = numpy.asarray(finalList, dtype='uint8')
     print('final')
